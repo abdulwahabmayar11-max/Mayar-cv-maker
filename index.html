@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#183b35">
+<title>Mayar CV Maker</title>
+<style>
+:root{--ink:#172a27;--muted:#64736f;--brand:#183b35;--accent:#d7a85b;--paper:#fff;--bg:#f3f6f4;--line:#dce4e0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.top{background:var(--brand);color:#fff;padding:18px 16px}.topin{max-width:1200px;margin:auto;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}.brand{font-size:21px;font-weight:800;letter-spacing:.2px}.sub{font-size:12px;color:#d2e0db}.actions{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid #ccd7d2;background:#fff;color:var(--brand);padding:9px 12px;border-radius:10px;font-weight:700}.btn.primary{background:var(--accent);border-color:var(--accent);color:#1e2b27}.btn.dark{background:#244d44;color:white;border-color:#51776e}
+main{max-width:1200px;margin:18px auto;padding:0 14px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:0 4px 18px #173b3510}.panel h2{margin:0 0 4px;font-size:20px}.hint{color:var(--muted);font-size:13px;margin:0 0 15px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:flex;flex-direction:column;gap:5px;min-width:0}.field.full{grid-column:1/-1}label{font-size:13px;font-weight:700;color:#354943}input,textarea,select{width:100%;border:1px solid #cfdad5;border-radius:9px;padding:10px;background:#fff;color:var(--ink);outline-color:#477a6d}textarea{min-height:72px;resize:vertical}.section{border-top:1px solid var(--line);margin-top:16px;padding-top:14px}.section h3{font-size:15px;margin:0 0 10px}.smallnote{font-size:12px;color:var(--muted)}.previewhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:12px}.previewhead h2{margin:0}.cvpage{background:#fff;border:1px solid #e0e5e2;box-shadow:0 8px 28px #142d2512;min-height:640px;color:#222;overflow:hidden}.cv-top{padding:28px 30px;background:#183b35;color:white;display:flex;align-items:center;gap:20px}.cv-top h1{font-size:29px;line-height:1.1;margin:0 0 8px;overflow-wrap:anywhere}.cv-top .role{font-size:14px;color:#f0d9ad;font-weight:700;letter-spacing:.6px}.cv-top .contact{font-size:12px;color:#e4eeea;margin-top:10px;overflow-wrap:anywhere}.photo{width:94px;height:110px;object-fit:cover;border:3px solid #ffffffb8;border-radius:8px;flex-shrink:0;background:#e7eeea;display:none}.cv-body{padding:24px 30px}.cv-section{margin-bottom:18px}.cv-section h3{font-size:12px;text-transform:uppercase;letter-spacing:1.4px;color:#183b35;border-bottom:2px solid #d7a85b;padding-bottom:5px;margin:0 0 8px}.cv-section p{margin:0;white-space:pre-line;overflow-wrap:anywhere;font-size:13px}.cv-section ul{margin:0;padding-left:18px;font-size:13px}.cv-section li{margin:3px 0;overflow-wrap:anywhere}.cv-meta{font-size:12px;color:#5c6864;margin:2px 0 5px}.cvpage.template-classic .cv-top{background:#fff;color:#222;border-bottom:3px solid #222}.cvpage.template-classic .cv-top .role{color:#444}.cvpage.template-classic .cv-top .contact{color:#444}.cvpage.template-classic .cv-section h3{color:#222;border-color:#222}.cvpage.template-modern .cv-top{background:#f0f4f2;color:#183b35;border-left:9px solid #d7a85b}.cvpage.template-modern .cv-top .role,.cvpage.template-modern .cv-top .contact{color:#435a53}.cvpage.template-modern .cv-section h3{color:#386c5e;border-color:#a7c4b8}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:4px 16px 22px}.rtl{direction:rtl}.rtl .cv-section ul{padding-right:18px;padding-left:0}.rtl .cv-top{flex-direction:row-reverse;text-align:right}.rtl .cv-section h3{text-align:right}.rtl .cv-section p{text-align:right}.rtl .cv-meta{text-align:right}.rtl .cvpage{font-family:Tahoma,Arial,sans-serif}
+@media(max-width:850px){main{grid-template-columns:1fr}.previewpanel{order:2}.formpanel{order:1}.cvpage{min-height:560px}.topin{align-items:flex-start}}
+@media(max-width:480px){.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:13px}.cv-top{padding:20px 17px;gap:12px}.cv-top h1{font-size:23px}.cv-body{padding:18px 17px}.photo{width:76px;height:90px}.brand{font-size:19px}}
+@media print{body{background:#fff}.top,main .formpanel,.previewhead,footer{display:none!important}main{display:block;margin:0;padding:0;max-width:none}.panel.previewpanel{border:0;padding:0;box-shadow:none}.cvpage{border:0;box-shadow:none;min-height:0;width:100%;page-break-inside:avoid}.cv-top{print-color-adjust:exact;-webkit-print-color-adjust:exact}.cv-section h3{print-color-adjust:exact;-webkit-print-color-adjust:exact}@page{size:A4;margin:12mm}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="topin">
+    <div><div class="brand">Mayar CV Maker</div><div class="sub" id="tagline">Build a professional CV in minutes</div></div>
+    <div class="actions">
+      <button class="btn dark" id="langBtn" type="button">دری</button>
+      <button class="btn" id="resetBtn" type="button">Clear form</button>
+      <button class="btn primary" id="printBtn" type="button">Print / Save PDF</button>
+    </div>
+  </div>
+</header>
+<main>
+<section class="panel formpanel" id="formPanel">
+  <h2 id="formTitle">Your information</h2>
+  <p class="hint" id="formHint">Fill in the fields. Your CV preview updates automatically.</p>
+  <div class="formgrid">
+    <div class="field"><label for="name" data-en="Full name" data-fa="نام مکمل">Full name</label><input id="name" placeholder="e.g. Abdulwahab" autocomplete="name"></div>
+    <div class="field"><label for="role" data-en="Job title" data-fa="عنوان وظیفه">Job title</label><input id="role" value="Office Assistant" placeholder="Office Assistant"></div>
+    <div class="field"><label for="phone" data-en="Phone" data-fa="شماره تماس">Phone</label><input id="phone" placeholder="+93 ... " inputmode="tel"></div>
+    <div class="field"><label for="email" data-en="Email (optional)" data-fa="ایمیل (اختیاری)">Email (optional)</label><input id="email" type="email" placeholder="name@example.com"></div>
+    <div class="field full"><label for="address" data-en="Location" data-fa="محل سکونت">Location</label><input id="address" placeholder="Kabul, Afghanistan"></div>
+    <div class="field full"><label for="summary" data-en="Professional summary" data-fa="خلاصه معرفی">Professional summary</label><textarea id="summary" placeholder="A motivated candidate seeking an opportunity to learn and contribute."></textarea></div>
+  </div>
+  <div class="section">
+    <h3 id="educationHeading">Education</h3>
+    <div class="formgrid">
+      <div class="field"><label for="education" data-en="Education level" data-fa="سطح تحصیل">Education level</label><input id="education" placeholder="Grade 12"></div>
+      <div class="field"><label for="school" data-en="School / institution (optional)" data-fa="مکتب / نهاد (اختیاری)">School / institution (optional)</label><input id="school"></div>
+      <div class="field"><label for="year" data-en="Graduation year (optional)" data-fa="سال فراغت (اختیاری)">Graduation year (optional)</label><input id="year" placeholder="2025"></div>
+    </div>
+  </div>
+  <div class="section">
+    <h3 id="experienceHeading">Experience</h3>
+    <div class="field"><label for="experience" data-en="Work experience" data-fa="تجربه کاری">Work experience</label><textarea id="experience" placeholder="Write experience, or enter: No formal work experience yet."></textarea></div>
+  </div>
+  <div class="section">
+    <h3 id="skillsHeading">Skills</h3>
+    <div class="field"><label for="skills" data-en="Skills (one per line or separated by commas)" data-fa="مهارت‌ها (هر کدام در یک خط یا با کامه)">Skills (one per line or separated by commas)</label><textarea id="skills" placeholder="Computer and internet&#10;Communication&#10;Willingness to learn"></textarea></div>
+  </div>
+  <div class="section">
+    <h3 id="languagesHeading">Languages</h3>
+    <div class="field"><label for="languages" data-en="Languages" data-fa="زبان‌ها">Languages</label><input id="languages" placeholder="Dari, Pashto, Basic English"></div>
+  </div>
+  <div class="section">
+    <h3 id="designHeading">Design</h3>
+    <div class="formgrid">
+      <div class="field"><label for="template" data-en="CV template" data-fa="طرح CV">CV template</label><select id="template"><option value="template-professional">Professional Green</option><option value="template-classic">Classic Black & White</option><option value="template-modern">Modern Minimal</option></select></div>
+      <div class="field"><label for="photoInput" data-en="Photo (optional)" data-fa="عکس (اختیاری)">Photo (optional)</label><input id="photoInput" type="file" accept="image/*"></div>
+    </div>
+    <p class="smallnote" id="photoNote">Your photo stays in this browser page; it is not uploaded to a server.</p>
+  </div>
+</section>
+
+<section class="panel previewpanel">
+  <div class="previewhead"><div><h2 id="previewTitle">Live preview</h2><div class="smallnote" id="previewHint">Check the layout before saving.</div></div><button class="btn primary" id="saveBtn" type="button">Save as PDF</button></div>
+  <article class="cvpage template-professional" id="cv">
+    <div class="cv-top">
+      <img class="photo" id="cvPhoto" alt="Profile photo">
+      <div style="min-width:0;flex:1"><h1 id="cvName">Your Name</h1><div class="role" id="cvRole">OFFICE ASSISTANT</div><div class="contact" id="cvContact">Phone · Location · Email</div></div>
+    </div>
+    <div class="cv-body">
+      <section class="cv-section" id="summarySection"><h3 id="cvSummaryTitle">Professional Summary</h3><p id="cvSummary">Add a short professional introduction.</p></section>
+      <section class="cv-section" id="educationSection"><h3 id="cvEducationTitle">Education</h3><p id="cvEducation">Your education</p></section>
+      <section class="cv-section" id="experienceSection"><h3 id="cvExperienceTitle">Experience</h3><p id="cvExperience">Your work experience</p></section>
+      <section class="cv-section" id="skillsSection"><h3 id="cvSkillsTitle">Skills</h3><ul id="cvSkills"><li>Your skills</li></ul></section>
+      <section class="cv-section" id="languagesSection"><h3 id="cvLanguagesTitle">Languages</h3><p id="cvLanguages">Your languages</p></section>
+    </div>
+  </article>
+</section>
+</main>
+<footer id="footerText">Mayar CV Maker · Your information stays on your device in this first version.</footer>
+<script>
+const $=id=>document.getElementById(id);
+let lang='en', photoUrl='';
+const translations={
+en:{tagline:'Build a professional CV in minutes',formTitle:'Your information',formHint:'Fill in the fields. Your CV preview updates automatically.',langBtn:'دری',reset:'Clear form',print:'Print / Save PDF',preview:'Live preview',previewHint:'Check the layout before saving.',save:'Save as PDF',education:'Education',experience:'Experience',skills:'Skills',languages:'Languages',design:'Design',summary:'Professional Summary',photoNote:'Your photo stays in this browser page; it is not uploaded to a server.',footer:'Mayar CV Maker · Your information stays on your device in this first version.',name:'Your Name',role:'OFFICE ASSISTANT',summaryPlaceholder:'Add a short professional introduction.',educationPlaceholder:'Your education',experiencePlaceholder:'Your work experience',skillsPlaceholder:'Your skills',languagesPlaceholder:'Your languages',templateNames:['Professional Green','Classic Black & White','Modern Minimal']},
+fa:{tagline:'در چند دقیقه یک سی‌وی حرفه‌ای بسازید',formTitle:'معلومات شما',formHint:'معلومات را وارد کنید؛ پیش‌نمایش سی‌وی خودکار تغییر می‌کند.',langBtn:'English',reset:'پاک‌کردن فورم',print:'چاپ / ذخیره PDF',preview:'پیش‌نمایش زنده',previewHint:'پیش از ذخیره، طرح را بررسی کنید.',save:'ذخیره به PDF',education:'تحصیلات',experience:'تجربه کاری',skills:'مهارت‌ها',languages:'زبان‌ها',design:'طرح',summary:'خلاصه معرفی',photoNote:'عکس در همین صفحهٔ مرورگر می‌ماند و به سرور فرستاده نمی‌شود.',footer:'Mayar CV Maker · در این نسخهٔ ابتدایی، معلومات شما روی دستگاه خودتان می‌ماند.',name:'نام شما',role:'دستیار دفتر',summaryPlaceholder:'یک معرفی کوتاه و مسلکی بنویسید.',educationPlaceholder:'تحصیلات شما',experiencePlaceholder:'تجربه کاری شما',skillsPlaceholder:'مهارت‌های شما',languagesPlaceholder:'زبان‌های شما',templateNames:['سبز مسلکی','سیاه و سفید کلاسیک','مدرن ساده']}
+};
+const ids=['name','role','phone','email','address','summary','education','school','year','experience','skills','languages'];
+function val(id){return $(id).value.trim()}
+function splitItems(s){return s.split(/[\n,;]+/).map(x=>x.trim()).filter(Boolean)}
+function setText(id,text){$(id).textContent=text}
+function update(){
+ const t=translations[lang], name=val('name')||t.name, role=val('role')||t.role;
+ setText('cvName',name);setText('cvRole',role.toUpperCase());
+ setText('cvContact',[val('phone'),val('address'),val('email')].filter(Boolean).join('  •  ')||'Phone  •  Location  •  Email');
+ setText('cvSummaryTitle',t.summary);setText('cvSummary',val('summary')||t.summaryPlaceholder);
+ const edu=[val('education'),val('school'),val('year')].filter(Boolean).join(' · ');
+ setText('cvEducationTitle',t.education);setText('cvEducation',edu||t.educationPlaceholder);
+ setText('cvExperienceTitle',t.experience);setText('cvExperience',val('experience')||t.experiencePlaceholder);
+ setText('cvSkillsTitle',t.skills);const skills=splitItems(val('skills'));$('cvSkills').replaceChildren(...(skills.length?skills:[t.skillsPlaceholder]).map(x=>{const li=document.createElement('li');li.textContent=x;return li}));
+ setText('cvLanguagesTitle',t.languages);setText('cvLanguages',val('languages')||t.languagesPlaceholder);
+ ['summarySection','educationSection','experienceSection','skillsSection','languagesSection'].forEach((id,i)=>$(id).style.display='');
+ $('cv').className='cvpage '+$('template').value;
+ $('cv').classList.toggle('rtl',lang==='fa');
+}
+function setLanguage(next){
+ lang=next;document.documentElement.lang=next==='fa'?'fa':'en';document.documentElement.dir=next==='fa'?'rtl':'ltr';
+ const t=translations[next];setText('tagline',t.tagline);setText('formTitle',t.formTitle);setText('formHint',t.formHint);setText('langBtn',t.langBtn);setText('resetBtn',t.reset);setText('printBtn',t.print);setText('previewTitle',t.preview);setText('previewHint',t.previewHint);setText('saveBtn',t.save);setText('educationHeading',t.education);setText('experienceHeading',t.experience);setText('skillsHeading',t.skills);setText('languagesHeading',t.languages);setText('designHeading',t.design);setText('photoNote',t.photoNote);setText('footerText',t.footer);
+ document.querySelectorAll('label[data-en]').forEach(l=>l.textContent=l.dataset[next==='fa'?'fa':'en']);
+ const opts=$('template').options; t.templateNames.forEach((x,i)=>opts[i].textContent=x);
+ update();
+}
+ids.forEach(id=>$(id).addEventListener('input',update));$('template').addEventListener('change',update);
+$('langBtn').addEventListener('click',()=>setLanguage(lang==='en'?'fa':'en'));
+$('printBtn').addEventListener('click',()=>window.print());$('saveBtn').addEventListener('click',()=>window.print());
+$('photoInput').addEventListener('change',e=>{
+ const file=e.target.files&&e.target.files[0];if(!file)return;
+ if(!file.type.startsWith('image/')){alert('Please choose an image file.');return}
+ if(photoUrl)URL.revokeObjectURL(photoUrl);photoUrl=URL.createObjectURL(file);
+ $('cvPhoto').src=photoUrl;$('cvPhoto').style.display='block';
+});
+$('resetBtn').addEventListener('click',()=>{
+ if(!confirm(lang==='fa'?'تمام معلومات پاک شود؟':'Clear all information?'))return;
+ ids.forEach(id=>$(id).value='');$('template').value='template-professional';$('photoInput').value='';
+ if(photoUrl)URL.revokeObjectURL(photoUrl);photoUrl='';$('cvPhoto').removeAttribute('src');$('cvPhoto').style.display='none';update();
+});
+setLanguage('en');update();
+</script>
+</body>
+</html>
